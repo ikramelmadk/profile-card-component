@@ -1,0 +1,164 @@
+.card {
+  --_card-radius: 1.6rem;
+
+  position: relative;
+  overflow: hidden;
+
+  width: min(100%, var(--w-card));
+  border-radius: var(--_card-radius);
+
+  transition: 0.6s cubic-bezier(0.075, 0.82, 0.165, 1);
+  animation: Showing 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.card__header {
+  --_card-h-pattern: url('bg-pattern-card.svg');
+  --_card-h-blur: 3px;
+
+  overflow: hidden;
+
+  width: 100%;
+  height: var(--h-card-header);
+
+  background-color: var(--color-dark-cyan); /* loading */
+
+  background-image: var(--_card-h-pattern);
+  background-size: cover;
+
+  background-repeat: no-repeat;
+  transition: 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+.card__header:hover {
+  filter: blur(var(--_card-h-blur));
+
+  opacity: 0.6;
+}
+
+.card__header:hover ~ .card__biography .card__image {
+  transform: scale(1.1);
+}
+
+.card__biography {
+  width: 100%;
+
+  background-color: var(--color-white);
+  padding: var(--p-biography-top) var(--p-biography-sides);
+
+  display: flex;
+  flex-direction: column;
+
+  align-items: center;
+}
+
+.card__image {
+  --_card-i-size: 12rem;
+  --_card-i-padding: 0.5rem;
+  --_card-i-offset: calc(
+    ((var(--_card-i-size) / 2) + var(--p-biography-top)) * -1
+  );
+
+  overflow: hidden;
+
+  width: var(--_card-i-size);
+  height: var(--_card-i-size);
+
+  margin-top: var(--_card-i-offset);
+  padding: var(--_card-i-padding);
+
+  background-color: var(--color-white);
+  border-radius: calc(var(--_card-i-size) / 2);
+
+  border: 1px solid var(--color-gray-rule);
+
+  transition: 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  cursor: pointer;
+}
+
+.card__image:hover {
+  background-color: var(--color-dark-cyan);
+
+  border-color: transparent;
+}
+
+.card__image img {
+  width: 100%;
+  height: 100%;
+
+  border-radius: 50%;
+}
+
+.card__author {
+  margin-top: 2rem;
+
+  font-size: 2.2rem;
+  font-weight: 700;
+
+  color: var(--color-very-dark-desaturated-blue);
+  text-align: center;
+
+  line-height: 1.4;
+}
+
+.card__author span {
+  font-size: 1.8rem;
+  font-weight: 400;
+
+  color: var(--color-dark-grayish-blue);
+  line-height: 1.4;
+}
+
+.card__city {
+  display: block;
+  margin-top: 0.8rem;
+
+  font-size: 1.8rem;
+  font-weight: 400;
+
+  text-align: center;
+  color: var(--color-dark-gray);
+
+  line-height: 1.4;
+}
+
+.card__statistics {
+  position: relative;
+
+  width: 100%;
+  padding: var(--p-statistics-top) var(--p-statistics-sides);
+
+  border-top: 1px solid var(--color-gray-rule);
+  background-color: var(--color-white);
+
+  display: flex;
+  justify-content: space-between;
+
+  align-items: center;
+}
+
+.card__statistic {
+  padding: 0.8rem;
+
+  text-align: center;
+}
+
+.card__statistic strong {
+  display: block;
+
+  font-size: 2.2rem;
+  font-weight: 700;
+
+  color: var(--color-very-dark-desaturated-blue);
+  text-transform: uppercase;
+
+  line-height: 1.4;
+}
+
+.card__statistic span {
+  font-size: 1.5rem;
+  font-weight: 400;
+
+  color: var(--color-dark-gray);
+
+  line-height: 1.4;
+}
